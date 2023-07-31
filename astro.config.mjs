@@ -6,5 +6,6 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://bethropolis.github.io',
   base: '/gena',
+  allowImportingTsExtensions: true,
   integrations: [tailwind()]
 });

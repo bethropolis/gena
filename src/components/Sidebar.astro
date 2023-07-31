@@ -1,6 +1,10 @@
 ---
-import { sidebarStructure } from '../content.js'
----
+import { sidebarStructure } from '../content.ts'
+import astroConfig from "../../astro.config.mjs";
+
+const {base} = astroConfig;
+const {slug} = Astro.params;
+--- 
 
 <div class="sidebar p-8 w-full h-full overflow-y-auto">
   <ul class="space-y-2">
@@ -15,11 +19,10 @@ import { sidebarStructure } from '../content.js'
         {item.children && (
           <ul class="space-y-1">
             {item.children.map((child) => (
-              <li class="">
+              <li class={child.label === slug ? 'active' : ''}>
                 <a
-                  href={child.path}
-                  class="block py-1 pl-4 text-sm hover:text-purple-500 border-l-2 border-gray-200 hover:border-purple-400"
-                  class={child.label === 'Getting Started' ? 'text-blue-500' : ''}
+                  href={`${base ?? ''}/${child.path}`}
+                  class="block py-1 pl-4 text-sm hover:text-green-500 border-l-2 border-gray-200 hover:border-green-400"
                 >
                   {child.label}
                 </a>
@@ -31,3 +34,9 @@ import { sidebarStructure } from '../content.js'
     ))}
   </ul>
 </div>
+
+<style>
+  .active a{
+    @apply text-green-500 border-l-2 border-green-400;
+  }
+</style>

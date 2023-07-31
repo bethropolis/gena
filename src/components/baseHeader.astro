@@ -1,0 +1,18 @@
+---
+import astroConfig from "../../astro.config.mjs";
+interface Props {
+  title: string;
+}
+
+const { base } = astroConfig;
+const { title } = Astro.props;
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Astro description" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg" href={`${base ?? ''}/favicon.svg`} />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+</head>
