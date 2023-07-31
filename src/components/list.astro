@@ -1,0 +1,21 @@
+---
+interface Props {
+  outline: string[];
+}
+
+const { outline } = Astro.props;
+---
+
+<div class="sidebar p-4 w-full h-full">
+  <ul class="space-y-2">
+    {
+      outline && outline.map((item) => (
+        <li class="pl-2 border-l-2 border-gray-400">
+          <a href={"#" + item} class="block py-1 hover:text-purple-500">
+            {item}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
