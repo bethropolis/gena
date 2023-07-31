@@ -28,3 +28,5 @@ export const sidebarStructure = [
     ],
   },
 ];
+
+export const base = "/gena";

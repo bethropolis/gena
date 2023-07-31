@@ -7,19 +7,19 @@
 //   homeLink: string;
 // }
 
-import astroConfig from "../../astro.config.mjs";
+import { base } from '../content';
 
 // Or you can hardcode the links
 const githubUrl = "https://github.com/your-username/your-repo";
 const homeLink = ""; 
 
-const {base} = astroConfig;
+
 ---
 
 <header class=" sticky top-0 flex items-center justify-between p-4 py-1 border-b bg-white shadow-sm dark:bg-gray-800 z-30 dark:border-gray-700">
   <div class="flex items-center">
-    <a href={`${base ?? ''}/${homeLink}`}>
-      <img src="/icon.svg" alt="Logo" class="w-10 h-10 mr-2" />
+    <a href={(base ?? '') + "/" + homeLink}>
+      <img src="/icon.svg" alt="Logo" class="w-10 h-10 rounded-full hover:border-2 hover:border-green-400 mr-2" />
     </a>
   </div>
   <div class="flex items-center justify-between gap-4">
