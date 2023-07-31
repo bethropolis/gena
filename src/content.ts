@@ -5,7 +5,7 @@ export const sidebarStructure = [
     children: [
       {
         label: "demo",
-        path: "/docs/demo",
+        path: "./docs/demo",
       },
       {
         label: "Option 2",
