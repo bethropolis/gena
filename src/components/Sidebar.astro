@@ -18,7 +18,7 @@ const { slug } = Astro.params;
           {item.children && (
             <ul class="space-y-1">
               {item.children.map((child) => (
-                <li class={child.label === slug ? "active" : ""}>
+                <li class={child.path.split("/").pop() === slug ? "active" : ""}>
                   <a
                     href={(base ?? "") + "/" + child.path}
                     class="block py-1 pl-4 text-sm hover:text-green-500 border-l-2 border-gray-200 dark:border-gray-600
@@ -38,6 +38,6 @@ const { slug } = Astro.params;
 
 <style>
   .active a {
-    @apply text-green-500 border-l-2 border-green-400 dark:border-green-200;
+    @apply text-green-500 border-l-2 border-green-400 hover:border-green-400;
   }
 </style>

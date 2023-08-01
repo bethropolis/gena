@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import "../../style/global.css";
 import Footer from "../../components/footer.astro";
 import { docsDir } from "../../content";
+import BreadNav from "../../components/breadNav.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection(docsDir);
@@ -19,6 +20,7 @@ const { Content } = await post.render();
 
 <Layout {...post.data}>
   <main class="content">
+    <BreadNav/>
     <Content />
     <Footer/>
   </main>
