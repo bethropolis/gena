@@ -4,29 +4,32 @@ export const sidebarStructure = [
     label: "Getting Started",
     children: [
       {
-        label: "demo",
-        path: "./docs/demo",
+        label: "introduction",
+        path: "./docs/introduction",
       },
       {
-        label: "Option 2",
-        path: "/advanced/option-2",
+        label: "installation",
+        path: "./docs/installation",
       },
     ],
   },
   {
-    label: "Advanced",
-    path: "/advanced",
+    label: "other",
     children: [
       {
-        label: "Option 1",
-        path: "/advanced/option-1",
+        label: "project structure",
+        path: "./docs/structure",
       },
       {
-        label: "Option 2",
-        path: "/advanced/option-2",
+        label: "showcase",
+        path: "./docs/showcase",
       },
     ],
   },
 ];
 
 export const base = "/gena";
+
+export const docsDir = "docs";
+
+export const githubUrl = "https://github.com/bethropolis/gena";

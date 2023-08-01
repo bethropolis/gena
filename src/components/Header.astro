@@ -1,36 +1,48 @@
 ---
-
-
 // If you want to pass the GitHub URL and home link as props
 // interface Props {
 //   githubUrl: string;
 //   homeLink: string;
 // }
 
-import { base } from '../content';
+import { base, githubUrl } from "../content";
 
 // Or you can hardcode the links
-const githubUrl = "https://github.com/your-username/your-repo";
-const homeLink = ""; 
 
-
+const homeLink = "";
 ---
 
-<header class=" sticky top-0 flex items-center justify-between p-4 py-1 border-b bg-white shadow-sm dark:bg-gray-800 z-30 dark:border-gray-700">
+<header
+  class="sticky top-0 flex items-center justify-between p-4 py-1 border-b bg-white shadow-sm dark:bg-gray-800 z-30 dark:border-gray-700"
+>
   <div class="flex items-center">
-    <a href={(base ?? '') + "/" + homeLink}>
-      <img src="/icon.svg" alt="Logo" class="w-10 h-10 rounded-full hover:border-2 hover:border-green-400 mr-2" />
+    <a href={base + "/" + homeLink}>
+      <img
+        src="/icon.svg"
+        alt="Logo"
+        class="w-10 h-10 rounded-full hover:border-2 hover:border-green-400 mr-2"
+      />
     </a>
   </div>
   <div class="flex items-center justify-between gap-4">
-    <a id="dark-mode-toggle" class="flex items-center p-1 rounded-full hover:bg-gray-200 dark:text-gray-50 dark:bg-gray-800"
-     href="javascript:;">
-        <svg
-        class="w-6 h-6 fill-current" 
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="text-gray-600 dark:text-gray-400 h-6 w-6">
-          <path class="heroicon-ui" d="M12 1c5.52 0 10 4.48 10 10s-4.48 10-10 10-10-4.48-10-10 4.48-10 10-10zm0 18c4.41 0 8-3.59 8-8s-3.59-8-8-8-8 3.59-8 8 3.59 8 8 8zm0-14c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z"/>
-        </svg>
-      </a>
+    <a
+      id="dark-mode-toggle"
+      class="flex items-center p-1 rounded-full hover:bg-gray-200 dark:text-gray-50 dark:bg-gray-800"
+      href="javascript:;"
+    >
+      <svg
+        class="w-6 h-6 fill-current"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="text-gray-600 dark:text-gray-400 h-6 w-6"
+      >
+        <path
+          class="heroicon-ui"
+          d="M12 1c5.52 0 10 4.48 10 10s-4.48 10-10 10-10-4.48-10-10 4.48-10 10-10zm0 18c4.41 0 8-3.59 8-8s-3.59-8-8-8-8 3.59-8 8 3.59 8 8 8zm0-14c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z"
+        ></path>
+      </svg>
+    </a>
     <a
       href={githubUrl}
       target="_blank"
@@ -51,10 +63,27 @@ const homeLink = "";
 </header>
 
 <script>
-const toggle = document.getElementById('dark-mode-toggle');
-const html = document.documentElement;
+ const html = document.documentElement;
 
-toggle?.addEventListener('click', () => {
+function setTheme() {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme) {
+    html.classList.add(savedTheme);
+  } else {
+    html.classList.add(prefersDark ? 'dark' : 'light');
+  }
+}
+
+function toggleTheme() {
   html.classList.toggle('dark');
-});    
+  const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+  localStorage.setItem('theme', currentTheme);
+}
+
+setTheme();
+
+const toggle = document.getElementById('dark-mode-toggle');
+toggle?.addEventListener('click', toggleTheme);
 </script>

@@ -30,8 +30,8 @@ body {
 }
 main {
 	width: 720px;
-	max-width: calc(100% - 1em);
-	padding: 3em 1em;
+	max-width: 100%;
+	padding: 3em 0 0 0;
 }
 .content h1,
 .content h2,
@@ -39,25 +39,30 @@ main {
 .content h4,
 .content h5,
 .content h6 {
-	margin: 0 0 0.5rem 0;
+	margin: 0 0 1rem 0;
 	color: rgb(var(--black));
 	line-height: 1.2;
-    @apply dark:text-slate-200;
+    @apply text-black dark:text-slate-200;
 }
+
 .content h1 {
-	font-size: 3.052em;
+	font-size: 1.75em;
 }
+
 .content h2 {
-	font-size: 2.441em;
+	font-size: 1.5em;
 }
+
 .content h3 {
-	font-size: 1.953em;
+	font-size: 1.17em;
 }
+
 .content h4 {
-	font-size: 1.563em;
+	font-size: 1em;
 }
+
 .content h5 {
-	font-size: 1.25em;
+	font-size: 0.83em;
 }
 .content strong,
 .content b {
@@ -71,7 +76,7 @@ main {
 }
 .content p {
 	margin-bottom: 1em;
-    @apply mt-2 text-lg text-gray-800 dark:text-gray-400;
+    @apply mt-2 text-lg text-gray-500 dark:text-gray-400;
 }
 .content .prose p {
 	margin-bottom: 2em;
@@ -96,6 +101,7 @@ main {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
 	border-radius: 2px;
+	@apply dark:text-slate-700;
 }
 .content pre {
 	padding: 1.5em;
