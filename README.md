@@ -3,7 +3,7 @@
 # Gena
 [![Deploy Astro site to Pages](https://github.com/bethropolis/gena/actions/workflows/astro.yml/badge.svg)](https://github.com/bethropolis/gena/actions/workflows/astro.yml)
 
-An astro template for writing docs fast using markdown.
+An astro ready made template for writing docs fast using markdown.
 
 # Installation
 
